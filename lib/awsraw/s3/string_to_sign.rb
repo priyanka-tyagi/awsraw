@@ -27,6 +27,8 @@ module AWSRaw
           request_info[:content_md5]  || "",
           request_info[:content_type] || "",
           request_info[:date],
+          request_info[:region],
+          request_info[:service],
           canonicalized_amz_headers(request_info[:amz_headers] || {}),
           CanonicalizedResource.canonicalized_resource(request_info[:uri])
         ].flatten.join("\n")

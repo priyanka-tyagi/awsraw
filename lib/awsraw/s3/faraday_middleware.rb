@@ -39,7 +39,9 @@ module AWSRaw
           :content_md5  => env[:request_headers]['Content-MD5'],
           :content_type => env[:request_headers]['Content-Type'],
           :date         => env[:request_headers]['Date'],
-          :amz_headers  => env[:request_headers]
+          :amz_headers  => env[:request_headers],
+          :region       => 'us-west-1',
+          :service      => 'es'
         )
 
         env[:request_headers]['Authorization'] = Signature.authorization_header(string_to_sign, @credentials)
